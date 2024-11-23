@@ -95,14 +95,13 @@ def main():
 ############################################# CHECKING PIZZA TYPE ####################################################################################################################################################################################
 ############################################# CHECKING PIZZA TYPE ####################################################################################################################################################################################
 
-tomato_pizza = cv2.imread("C:\\python\\Automation\\Tomato.PNG", cv2.IMREAD_UNCHANGED)
+tomato_pizza = cv2.imread("C:\\python\\Automation\\Tomato.PNG", cv2.IMREAD_COLOR)
 artichoke_pizza = cv2.imread("C:\\python\\Automation\\Artichoke.PNG", cv2.IMREAD_COLOR)
 Squid_pizza = cv2.imread("C:\\python\\Automation\\Squid.PNG", cv2.IMREAD_COLOR)
 Sausage_pizza = cv2.imread("C:\\python\\Automation\\Sausage.PNG", cv2.IMREAD_COLOR)
 Tuna_pizza = cv2.imread("C:\\python\\Automation\\Tuna.PNG", cv2.IMREAD_COLOR)
 Olive_pizza = cv2.imread("C:\\python\\Automation\\Olive.PNG", cv2.IMREAD_COLOR)
 
-tomato_pizza = cv2.cvtColor(tomato_pizza, cv2.color_)
 
 
 # M = Making
@@ -217,12 +216,10 @@ def PickPizza():
 ############################################# SCHEDULING #################################################################################################################################################################################################################################
 
 
-#checkpizzatypes()
-#screenshotpizzamenu = pyautogui.screenshot()
-#SSPizzamenuNP = np.array(screenshotpizzamenu)
-#SSPMbgr= cv2.cvtColor(SSPizzamenuNP, cv2.COLOR_RGB2BGR)
-#cv2.imshow("test", SSPMbgr)
-#cv2.waitKey()
-
 time.sleep(5)
-checkpizzatypes()
+while True:
+    checkpizzatypes()
+    main()
+    main()
+    time.sleep(3)
+    PickPizza()
