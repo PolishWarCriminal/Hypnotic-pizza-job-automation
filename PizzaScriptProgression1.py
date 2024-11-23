@@ -194,29 +194,29 @@ def PickPizza():
 
 
     if M_Tom_Pizza == 1:
-        pyautogui.click(1097,729)    
+        pyautogui.click(1136,766)    
         time.sleep(.5)
-        pyautogui.click(1097,729)    
+        pyautogui.click(1136,766)    
     elif M_Art_Pizza == 1:
-        pyautogui.click(1307,442)
+        pyautogui.click(1305,446)
         time.sleep(.5)     
-        pyautogui.click(1307,442)   
+        pyautogui.click(1305,446)   
     elif M_Squ_Pizza == 1:
-        pyautogui.click(1107,571)
+        pyautogui.click(1126,619)
         time.sleep(.5)
-        pyautogui.click(1107,571)
+        pyautogui.click(1126,619)
     elif M_Sau_Pizza == 1:
-        pyautogui.click(1301,592)
+        pyautogui.click(1302,617)
         time.sleep(.5)
-        pyautogui.click(1301,592)
+        pyautogui.click(1302,617)
     elif M_Tun_Pizza == 1:
-        pyautogui.click(1071,427)
+        pyautogui.click(1080,447)
         time.sleep(.5)
-        pyautogui.click(1071,427)
+        pyautogui.click(1080,447)
     elif M_Olv_Pizza == 1:
-        pyautogui.click(1272,720)
+        pyautogui.click(1304,768)
         time.sleep(.5)
-        pyautogui.click(1272,720)
+        pyautogui.click(1304,768)
     time.sleep(.5)
     pyautogui.click(1337,874)
     time.sleep(.25)
