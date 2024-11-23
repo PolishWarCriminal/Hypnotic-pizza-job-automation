@@ -11,6 +11,15 @@ import threading
 ############################################# INTERRUPTS ###############################################################################################################################################################################
 running = False
 kill = False
+print("resolution 1 = 1080p")
+print("resolution 2 = 4k")
+choice = input(int("Resolution 1 or 2"))
+if choice == 1:
+    x_res = 1920
+    y_res = 1080
+elif choice == 2:
+    x_res = 4096
+    y_res = 2160
 
 
 def handle_stop():
@@ -194,31 +203,31 @@ def PickPizza():
 
 
     if M_Tom_Pizza == 1:
-        pyautogui.click(1136,766)    
+        pyautogui.click(int(x_res/1.69),int(y_res/1.41))    
         time.sleep(.5)
-        pyautogui.click(1136,766)    
+        pyautogui.click(int(x_res/1.69),int(y_res/1.41))    
     elif M_Art_Pizza == 1:
-        pyautogui.click(1305,446)
+        pyautogui.click(int(x_res/1.47),int(y_res/2.42))
         time.sleep(.5)     
-        pyautogui.click(1305,446)   
+        pyautogui.click(int(x_res/1.47),int(y_res/2.42))   
     elif M_Squ_Pizza == 1:
-        pyautogui.click(1126,619)
+        pyautogui.click(int(x_res/1.7),int(y_res/1.74))
         time.sleep(.5)
-        pyautogui.click(1126,619)
+        pyautogui.click(int(x_res/1.7),int(y_res/1.74))
     elif M_Sau_Pizza == 1:
-        pyautogui.click(1302,617)
+        pyautogui.click(int(x_res/1.47),int(y_res/1.75))
         time.sleep(.5)
-        pyautogui.click(1302,617)
+        pyautogui.click(int(x_res/1.47),int(y_res/1.75))
     elif M_Tun_Pizza == 1:
-        pyautogui.click(1080,447)
+        pyautogui.click(int(x_res/1.77),int(y_res/2.41))
         time.sleep(.5)
-        pyautogui.click(1080,447)
+        pyautogui.click(int(x_res/1.77),int(y_res/2.41))
     elif M_Olv_Pizza == 1:
-        pyautogui.click(1304,768)
+        pyautogui.click(int(x_res/1.47),int(y_res/1.4))
         time.sleep(.5)
-        pyautogui.click(1304,768)
+        pyautogui.click(int(x_res/1.47),int(y_res/1.4))
     time.sleep(.5)
-    pyautogui.click(1337,874)
+    pyautogui.click(int(x_res/1.43),int(y_res/1.23))
     time.sleep(.25)
     pyautogui.click(1337,874)
 
