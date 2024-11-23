@@ -95,12 +95,12 @@ def main():
 ############################################# CHECKING PIZZA TYPE ####################################################################################################################################################################################
 ############################################# CHECKING PIZZA TYPE ####################################################################################################################################################################################
 
-tomato_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Tomato.png", cv2.IMREAD_COLOR)
-artichoke_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Artichoke.PNG", cv2.IMREAD_COLOR)
-Squid_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Squid.PNG", cv2.IMREAD_COLOR)
-Sausage_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Sausage.PNG", cv2.IMREAD_COLOR)
-Tuna_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Tuna.PNG", cv2.IMREAD_COLOR)
-Olive_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Olive.PNG", cv2.IMREAD_COLOR)
+tomato_pizza = cv2.imread("C:\\python\\Automation\\Tomato.PNG", cv2.IMREAD_COLOR)
+artichoke_pizza = cv2.imread("C:\\python\\Automation\\Artichoke.PNG", cv2.IMREAD_COLOR)
+Squid_pizza = cv2.imread("C:\\python\\Automation\\Squid.PNG", cv2.IMREAD_COLOR)
+Sausage_pizza = cv2.imread("C:\\python\\Automation\\Sausage.PNG", cv2.IMREAD_COLOR)
+Tuna_pizza = cv2.imread("C:\\python\\Automation\\Tuna.PNG", cv2.IMREAD_COLOR)
+Olive_pizza = cv2.imread("C:\\python\\Automation\\Olive.PNG", cv2.IMREAD_COLOR)
 
 
 
