@@ -24,9 +24,8 @@ def handle_start():
     print("start signal received.")
     
 def handle_kill():
-    global kill
-    print("killing program")
-    kill = True
+    while True:
+        break
 
 ############################################# GREEN BUTTON PRESSING #################################################################################################################################################################################################################################
 ############################################# GREEN BUTTON PRESSING ####################################################################################################################################################################################
@@ -226,16 +225,27 @@ def PickPizza():
 ############################################# SCHEDULING #################################################################################################################################################################################################################################
 ############################################# SCHEDULING #################################################################################################################################################################################################################################
 
+def scheduling():
+    time.sleep(5)
+    checkpizzatypes()
+    main()
+    noBut = 0
+    print("STOPPED MAIN")
+    main()
+    noBut = 0
+    print("STOPPED MAIN")
+    time.sleep(5)
+    print("PICKING PIZZA")
+    PickPizza()
 
-time.sleep(5)
-#while True:
-checkpizzatypes()
-main()
-noBut = 0
-print("STOPPED MAIN")
-main()
-noBut = 0
-print("STOPPED MAIN")
-time.sleep(5)
-print("PICKING PIZZA")
-PickPizza()
+def real_main():
+    global running
+    running = False
+    while True:
+        keyboard.on_press_key('e', lambda _: handle_start())
+        keyboard.on_press_key('q', lambda _: handle_stop())
+        keyboard.on_press_key('0', lambda _: handle_kill())
+        while running == True:
+            scheduling()
+
+real_main()
