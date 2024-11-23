@@ -75,13 +75,13 @@ def main():
         if kill == True:
             break
         while running == True:
-            while noBut <= 20:
+            while noBut <= 25:
                 screenshot = pyautogui.screenshot()
                 frame = np.array(screenshot)
                 green_button_pos = find_specific_color(frame, target_color)
                 if green_button_pos:
                     pyautogui.click(green_button_pos)
-                    time.sleep(0.5)
+                    time.sleep(0.1)
                 else:
                     print("Green button not found.")
                     noBut += 1   
