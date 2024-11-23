@@ -95,12 +95,15 @@ def main():
 ############################################# CHECKING PIZZA TYPE ####################################################################################################################################################################################
 ############################################# CHECKING PIZZA TYPE ####################################################################################################################################################################################
 
-tomato_pizza = cv2.imread("C:\\python\\Automation\\Tomato.PNG", cv2.IMREAD_COLOR)
+tomato_pizza = cv2.imread("C:\\python\\Automation\\Tomato.PNG", cv2.IMREAD_UNCHANGED)
 artichoke_pizza = cv2.imread("C:\\python\\Automation\\Artichoke.PNG", cv2.IMREAD_COLOR)
 Squid_pizza = cv2.imread("C:\\python\\Automation\\Squid.PNG", cv2.IMREAD_COLOR)
 Sausage_pizza = cv2.imread("C:\\python\\Automation\\Sausage.PNG", cv2.IMREAD_COLOR)
 Tuna_pizza = cv2.imread("C:\\python\\Automation\\Tuna.PNG", cv2.IMREAD_COLOR)
 Olive_pizza = cv2.imread("C:\\python\\Automation\\Olive.PNG", cv2.IMREAD_COLOR)
+
+tomato_pizza = cv2.cvtColor(tomato_pizza, cv2.color_)
+
 
 # M = Making
 M_Tom_Pizza = 0
@@ -111,28 +114,51 @@ M_Tun_Pizza = 0
 M_Olv_Pizza = 0
 
 
-def checkpizzatypes(screenimagescreenshot):
+def checkpizzatypes():
 
-    screen_image = cv2.imread("C:\\python\\Automation\\Screen.PNG", cv2.IMREAD_UNCHANGED) ####CHANGE IN FUTURE FOR SCREENSHOT
+   
+    screenshotpizzamenu = pyautogui.screenshot()
+    SSPizzamenuNP = np.array(screenshotpizzamenu)
+    screen_image = cv2.cvtColor(SSPizzamenuNP, cv2.COLOR_RGB2BGR)
+    cv2.imshow("N", SSPizzamenuNP)
+    cv2.waitKey()
+    cv2.imshow("screenim", screen_image)
+    cv2.waitKey()
+
+    #screen_image = cv2.imread("C:\\python\\Automation\\Screen.PNG", cv2.IMREAD_UNCHANGED) ####CHANGE IN FUTURE FOR SCREENSHOT
+
 
 
     Tomresult = cv2.matchTemplate(screen_image, tomato_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxTom_val, min_loc, maxTom_loc = cv2.minMaxLoc(Tomresult)
+    print(maxTom_val)
+    cv2.imshow("result",Tomresult)
+    cv2.waitKey()
 
     Artresult = cv2.matchTemplate(screen_image, artichoke_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxArt_val, min_loc, maxArt_loc = cv2.minMaxLoc(Artresult)
+    cv2.imshow("result",Artresult)
+    cv2.waitKey()
 
     Squresult = cv2.matchTemplate(screen_image, Squid_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxSqu_val, min_loc, maxSqu_loc = cv2.minMaxLoc(Squresult)
+    cv2.imshow("result",Squresult)
+    cv2.waitKey()
 
     Sauresult = cv2.matchTemplate(screen_image, Sausage_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxSau_val, min_loc, maxSau_loc = cv2.minMaxLoc(Sauresult)
+    cv2.imshow("result",Sauresult)
+    cv2.waitKey()
 
     Tunresult = cv2.matchTemplate(screen_image, Tuna_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxTun_val, min_loc, maxTun_loc = cv2.minMaxLoc(Tunresult)
+    cv2.imshow("result",Tunresult)
+    cv2.waitKey()
 
     Olvresult = cv2.matchTemplate(screen_image, Olive_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxOlv_val, min_loc, maxOlv_loc = cv2.minMaxLoc(Olvresult)
+    cv2.imshow("result",Olvresult)
+    cv2.waitKey()
 
     if maxTom_val >0.8:
         M_Tom_Pizza = 1
@@ -161,7 +187,42 @@ def checkpizzatypes(screenimagescreenshot):
 ############################################# SELECTING PIZZA TOPPING #################################################################################################################################################################################################################################
 ############################################# SELECTING PIZZA TOPPING #################################################################################################################################################################################################################################
 
-main()
+def PickPizza():
+    if M_Tom_Pizza == 1:
+        pyautogui.click(1097,729)    
+    elif M_Art_Pizza == 1:
+        pyautogui.click(1307,442)
+    elif M_Squ_Pizza == 1:
+        pyautogui.click(1107,571)
+    elif M_Sau_Pizza == 1:
+        pyautogui.click(1301,5592)
+    elif M_Tun_Pizza == 1:
+        pyautogui.click(1071,427)
+    elif M_Olv_Pizza == 1:
+        pyautogui.click(1272,720)
 
-#def PickPizza():
-    
+    M_Tom_Pizza = 0
+    M_Art_Pizza = 0
+    M_Squ_Pizza = 0
+    M_Sau_Pizza = 0
+    M_Tun_Pizza = 0
+    M_Olv_Pizza = 0
+
+
+##############################################################################################################################################################################################################################################################################
+##############################################################################################################################################################################################################################################################################
+
+
+############################################# SCHEDULING#################################################################################################################################################################################################################################
+############################################# SCHEDULING #################################################################################################################################################################################################################################
+
+
+#checkpizzatypes()
+#screenshotpizzamenu = pyautogui.screenshot()
+#SSPizzamenuNP = np.array(screenshotpizzamenu)
+#SSPMbgr= cv2.cvtColor(SSPizzamenuNP, cv2.COLOR_RGB2BGR)
+#cv2.imshow("test", SSPMbgr)
+#cv2.waitKey()
+
+time.sleep(5)
+checkpizzatypes()
