@@ -12,6 +12,7 @@ import threading
 running = False
 kill = False
 
+
 def handle_stop():
     global running
     running = False
@@ -66,17 +67,27 @@ def find_specific_color(image, target_color, tolerance=10):
 
 def main():
     target_color = (82, 255, 0) 
-    while noBut <= 25:
+    global noBut
+    noBut = 0
+    time.sleep(5)
+    while noBut <= 20:
         screenshot = pyautogui.screenshot()
         frame = np.array(screenshot)
         green_button_pos = find_specific_color(frame, target_color)
-    if green_button_pos:
-        pyautogui.click(green_button_pos)
-        time.sleep(0.1)
-    else:
-        print("Green button not found.")
-        noBut += 1   
-    noBut = 0                                               
+        if green_button_pos:
+            pyautogui.click(green_button_pos)
+            pyautogui.click(green_button_pos)
+            pyautogui.click(green_button_pos)
+            pyautogui.click(green_button_pos)
+            pyautogui.click(green_button_pos)
+            pyautogui.click(green_button_pos)
+            pyautogui.click(green_button_pos)
+            time.sleep(0.04)
+        else:
+            print("Green button not found.")
+            noBut += 1   
+    noBut = 0
+    return                                               
     
 
 
@@ -105,15 +116,19 @@ M_Olv_Pizza = 0
 
 
 def checkpizzatypes():
-
+    
+    global M_Tom_Pizza 
+    global M_Art_Pizza 
+    global M_Squ_Pizza 
+    global M_Sau_Pizza 
+    global M_Tun_Pizza 
+    global M_Olv_Pizza 
+    
    
     screenshotpizzamenu = pyautogui.screenshot()
     SSPizzamenuNP = np.array(screenshotpizzamenu)
     screen_image = cv2.cvtColor(SSPizzamenuNP, cv2.COLOR_RGB2BGR)
-    cv2.imshow("N", SSPizzamenuNP)
-    cv2.waitKey()
-    cv2.imshow("screenim", screen_image)
-    cv2.waitKey()
+
 
     #screen_image = cv2.imread("C:\\python\\Automation\\Screen.PNG", cv2.IMREAD_UNCHANGED) ####CHANGE IN FUTURE FOR SCREENSHOT
 
@@ -122,33 +137,27 @@ def checkpizzatypes():
     Tomresult = cv2.matchTemplate(screen_image, tomato_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxTom_val, min_loc, maxTom_loc = cv2.minMaxLoc(Tomresult)
     print(maxTom_val)
-    cv2.imshow("result",Tomresult)
-    cv2.waitKey()
+
 
     Artresult = cv2.matchTemplate(screen_image, artichoke_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxArt_val, min_loc, maxArt_loc = cv2.minMaxLoc(Artresult)
-    cv2.imshow("result",Artresult)
-    cv2.waitKey()
+
 
     Squresult = cv2.matchTemplate(screen_image, Squid_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxSqu_val, min_loc, maxSqu_loc = cv2.minMaxLoc(Squresult)
-    cv2.imshow("result",Squresult)
-    cv2.waitKey()
+
 
     Sauresult = cv2.matchTemplate(screen_image, Sausage_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxSau_val, min_loc, maxSau_loc = cv2.minMaxLoc(Sauresult)
-    cv2.imshow("result",Sauresult)
-    cv2.waitKey()
+
 
     Tunresult = cv2.matchTemplate(screen_image, Tuna_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxTun_val, min_loc, maxTun_loc = cv2.minMaxLoc(Tunresult)
-    cv2.imshow("result",Tunresult)
-    cv2.waitKey()
+
 
     Olvresult = cv2.matchTemplate(screen_image, Olive_pizza, cv2.TM_CCOEFF_NORMED)
     min_val, maxOlv_val, min_loc, maxOlv_loc = cv2.minMaxLoc(Olvresult)
-    cv2.imshow("result",Olvresult)
-    cv2.waitKey()
+
 
     if maxTom_val >0.8:
         M_Tom_Pizza = 1
@@ -178,6 +187,14 @@ def checkpizzatypes():
 ############################################# SELECTING PIZZA TOPPING #################################################################################################################################################################################################################################
 
 def PickPizza():
+    global M_Tom_Pizza 
+    global M_Art_Pizza 
+    global M_Squ_Pizza 
+    global M_Sau_Pizza 
+    global M_Tun_Pizza 
+    global M_Olv_Pizza 
+
+
     if M_Tom_Pizza == 1:
         pyautogui.click(1097,729)    
     elif M_Art_Pizza == 1:
@@ -185,11 +202,14 @@ def PickPizza():
     elif M_Squ_Pizza == 1:
         pyautogui.click(1107,571)
     elif M_Sau_Pizza == 1:
-        pyautogui.click(1301,5592)
+        pyautogui.click(1301,592)
     elif M_Tun_Pizza == 1:
         pyautogui.click(1071,427)
     elif M_Olv_Pizza == 1:
         pyautogui.click(1272,720)
+
+    time.sleep(.5)
+    pyautogui.click(1337,874)
 
     M_Tom_Pizza = 0
     M_Art_Pizza = 0
@@ -203,23 +223,19 @@ def PickPizza():
 ##############################################################################################################################################################################################################################################################################
 
 
-############################################# SCHEDULING#################################################################################################################################################################################################################################
+############################################# SCHEDULING #################################################################################################################################################################################################################################
 ############################################# SCHEDULING #################################################################################################################################################################################################################################
 
-def run():
-    global running
-    global kill
-    keyboard.on_press_key('e', lambda _: handle_start())
-    keyboard.on_press_key('q', lambda _: handle_stop())
-    keyboard.on_press_key('0', lambda _: handle_kill())
-    if kill == True:
-        break
-    time.sleep(5)
-    while running == True:
-        checkpizzatypes()
-        main()
-        main()
-        time.sleep(3)
-        PickPizza()
-    
-run()
+
+time.sleep(5)
+#while True:
+checkpizzatypes()
+main()
+noBut = 0
+print("STOPPED MAIN")
+main()
+noBut = 0
+print("STOPPED MAIN")
+time.sleep(5)
+print("PICKING PIZZA")
+PickPizza()
