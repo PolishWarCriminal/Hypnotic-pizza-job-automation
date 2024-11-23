@@ -65,27 +65,18 @@ def find_specific_color(image, target_color, tolerance=10):
 
 
 def main():
-    global noBut
-    global running
-    keyboard.on_press_key('e', lambda _: handle_start())
-    keyboard.on_press_key('q', lambda _: handle_stop())
-    keyboard.on_press_key('0', lambda _: handle_kill())
     target_color = (82, 255, 0) 
-    while True:
-        if kill == True:
-            break
-        while running == True:
-            while noBut <= 25:
-                screenshot = pyautogui.screenshot()
-                frame = np.array(screenshot)
-                green_button_pos = find_specific_color(frame, target_color)
-                if green_button_pos:
-                    pyautogui.click(green_button_pos)
-                    time.sleep(0.1)
-                else:
-                    print("Green button not found.")
-                    noBut += 1   
-        noBut = 0                                               
+    while noBut <= 25:
+        screenshot = pyautogui.screenshot()
+        frame = np.array(screenshot)
+        green_button_pos = find_specific_color(frame, target_color)
+    if green_button_pos:
+        pyautogui.click(green_button_pos)
+        time.sleep(0.1)
+    else:
+        print("Green button not found.")
+        noBut += 1   
+    noBut = 0                                               
     
 
 
@@ -215,11 +206,20 @@ def PickPizza():
 ############################################# SCHEDULING#################################################################################################################################################################################################################################
 ############################################# SCHEDULING #################################################################################################################################################################################################################################
 
-
-time.sleep(5)
-while True:
-    checkpizzatypes()
-    main()
-    main()
-    time.sleep(3)
-    PickPizza()
+def run():
+    global running
+    global kill
+    keyboard.on_press_key('e', lambda _: handle_start())
+    keyboard.on_press_key('q', lambda _: handle_stop())
+    keyboard.on_press_key('0', lambda _: handle_kill())
+    if kill == True:
+        break
+    time.sleep(5)
+    while running == True:
+        checkpizzatypes()
+        main()
+        main()
+        time.sleep(3)
+        PickPizza()
+    
+run()
