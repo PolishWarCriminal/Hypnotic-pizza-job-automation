@@ -14,6 +14,8 @@ kill = False
 print("resolution 1 = 1080p")
 print("resolution 2 = 4k")
 choice = input(int("Resolution 1 or 2"))
+print("Make sure to download the right images!")
+
 if choice == 1:
     x_res = 1920
     y_res = 1080
