@@ -68,7 +68,6 @@ def main():
     target_color = (82, 255, 0) 
     global noBut
     noBut = 0
-    time.sleep(5)
     while noBut <= 20:
         screenshot = pyautogui.screenshot()
         frame = np.array(screenshot)
@@ -196,18 +195,31 @@ def PickPizza():
 
     if M_Tom_Pizza == 1:
         pyautogui.click(1097,729)    
+        time.sleep(.5)
+        pyautogui.click(1097,729)    
     elif M_Art_Pizza == 1:
         pyautogui.click(1307,442)
+        time.sleep(.5)     
+        pyautogui.click(1307,442)   
     elif M_Squ_Pizza == 1:
+        pyautogui.click(1107,571)
+        time.sleep(.5)
         pyautogui.click(1107,571)
     elif M_Sau_Pizza == 1:
         pyautogui.click(1301,592)
+        time.sleep(.5)
+        pyautogui.click(1301,592)
     elif M_Tun_Pizza == 1:
+        pyautogui.click(1071,427)
+        time.sleep(.5)
         pyautogui.click(1071,427)
     elif M_Olv_Pizza == 1:
         pyautogui.click(1272,720)
-
+        time.sleep(.5)
+        pyautogui.click(1272,720)
     time.sleep(.5)
+    pyautogui.click(1337,874)
+    time.sleep(.25)
     pyautogui.click(1337,874)
 
     M_Tom_Pizza = 0
@@ -227,16 +239,45 @@ def PickPizza():
 
 def scheduling():
     time.sleep(5)
+    with pyautogui.hold('w'):
+        time.sleep(0.8)
+    with pyautogui.hold('d'):
+        time.sleep(0.4)
+    time.sleep(1)
     checkpizzatypes()
+    with pyautogui.hold('s'):
+        time.sleep(0.2)
+    with pyautogui.hold('a'):
+        time.sleep(0.85)
+    with pyautogui.hold('w'):
+        time.sleep(0.85)
+    with pyautogui.hold('d'):
+        time.sleep(0.1)
+    with pyautogui.hold('w'):
+        time.sleep(0.85)
+    time.sleep(1)
+    main()
+    noBut = 0
+    with pyautogui.hold('w'):
+        time.sleep(0.85)
+    print("STOPPED MAIN")
+    time.sleep(1)
     main()
     noBut = 0
     print("STOPPED MAIN")
-    main()
-    noBut = 0
-    print("STOPPED MAIN")
-    time.sleep(5)
+    with pyautogui.hold('a'):
+        time.sleep(0.85)
+    time.sleep(1)
     print("PICKING PIZZA")
     PickPizza()
+    with pyautogui.hold('s'):
+        time.sleep(2.55)
+    with pyautogui.hold('d'):
+        time.sleep(1.1)
+    with pyautogui.hold('s'):
+        time.sleep(0.4)
+    with pyautogui.hold('a'):
+        time.sleep(0.5)
 
 def real_main():
     global running
