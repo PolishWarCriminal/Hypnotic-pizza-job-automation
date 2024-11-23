@@ -11,27 +11,17 @@ import threading
 ############################################# INTERRUPTS ###############################################################################################################################################################################
 running = False
 kill = False
-print("resolution 1 = 1080p")
-print("resolution 2 = 4k")
-choice = int(input("Resolution 1 or 2" ))
-if choice == 1:
-    x_res = 1920
-    y_res = 1080
-elif choice == 2:
-    x_res = 4096
-    y_res = 2160
+print("you will have to adjust coordinates for your own device")
 print("press e to start, q to stop, 0 to exit")
 
 
 def handle_stop():
     global running
     running = False
-    print("Stop signal received.")
     
 def handle_start():
     global running
     running = True
-    print("start signal received.")
     
 def handle_kill():
     while True:
@@ -202,31 +192,31 @@ def PickPizza():
 
 
     if M_Tom_Pizza == 1:
-        pyautogui.click(int(x_res/1.69),int(y_res/1.41))    
+        pyautogui.click(1136, 766)    
         time.sleep(.5)
-        pyautogui.click(int(x_res/1.69),int(y_res/1.41))    
+        pyautogui.click(1136, 766)    
     elif M_Art_Pizza == 1:
-        pyautogui.click(int(x_res/1.47),int(y_res/2.42))
+        pyautogui.click(1305, 446)
         time.sleep(.5)     
-        pyautogui.click(int(x_res/1.47),int(y_res/2.42))   
+        pyautogui.click(1305, 446)   
     elif M_Squ_Pizza == 1:
-        pyautogui.click(int(x_res/1.7),int(y_res/1.74))
+        pyautogui.click(1126, 619)
         time.sleep(.5)
-        pyautogui.click(int(x_res/1.7),int(y_res/1.74))
+        pyautogui.click(1126, 619)
     elif M_Sau_Pizza == 1:
-        pyautogui.click(int(x_res/1.47),int(y_res/1.75))
+        pyautogui.click(1302, 617)
         time.sleep(.5)
         pyautogui.click(int(x_res/1.47),int(y_res/1.75))
     elif M_Tun_Pizza == 1:
-        pyautogui.click(int(x_res/1.77),int(y_res/2.41))
+        pyautogui.click(1080, 447)
         time.sleep(.5)
-        pyautogui.click(int(x_res/1.77),int(y_res/2.41))
+        pyautogui.click(1080, 447)
     elif M_Olv_Pizza == 1:
-        pyautogui.click(int(x_res/1.47),int(y_res/1.4))
+        pyautogui.click(1304, 768)
         time.sleep(.5)
-        pyautogui.click(int(x_res/1.47),int(y_res/1.4))
+        pyautogui.click(1304, 768)
     time.sleep(.5)
-    pyautogui.click(int(x_res/1.43),int(y_res/1.23))
+    pyautogui.click(1337,874)
     time.sleep(.25)
     pyautogui.click(1337,874)
 
