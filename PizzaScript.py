@@ -206,7 +206,7 @@ def PickPizza():
     elif M_Sau_Pizza == 1:
         pyautogui.click(1302, 617)
         time.sleep(.5)
-        pyautogui.click(int(x_res/1.47),int(y_res/1.75))
+        pyautogui.click(1302, 617)
     elif M_Tun_Pizza == 1:
         pyautogui.click(1080, 447)
         time.sleep(.5)
