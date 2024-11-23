@@ -11,7 +11,7 @@ import threading
 ############################################# INTERRUPTS ###############################################################################################################################################################################
 running = False
 kill = False
-print("you will have to adjust coordinates for your own device")
+print("you will have to adjust coordinates for your own device if it is not 1920x1080p")
 print("press e to start, q to stop, 0 to exit")
 
 
