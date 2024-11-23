@@ -13,15 +13,14 @@ running = False
 kill = False
 print("resolution 1 = 1080p")
 print("resolution 2 = 4k")
-choice = input(int("Resolution 1 or 2"))
-print("Make sure to download the right images!")
-
+choice = int(input("Resolution 1 or 2" ))
 if choice == 1:
     x_res = 1920
     y_res = 1080
 elif choice == 2:
     x_res = 4096
     y_res = 2160
+print("press e to start, q to stop, 0 to exit")
 
 
 def handle_stop():
@@ -106,12 +105,12 @@ def main():
 ############################################# CHECKING PIZZA TYPE ####################################################################################################################################################################################
 ############################################# CHECKING PIZZA TYPE ####################################################################################################################################################################################
 
-tomato_pizza = cv2.imread("C:\\python\\Automation\\Tomato.PNG", cv2.IMREAD_COLOR)
-artichoke_pizza = cv2.imread("C:\\python\\Automation\\Artichoke.PNG", cv2.IMREAD_COLOR)
-Squid_pizza = cv2.imread("C:\\python\\Automation\\Squid.PNG", cv2.IMREAD_COLOR)
-Sausage_pizza = cv2.imread("C:\\python\\Automation\\Sausage.PNG", cv2.IMREAD_COLOR)
-Tuna_pizza = cv2.imread("C:\\python\\Automation\\Tuna.PNG", cv2.IMREAD_COLOR)
-Olive_pizza = cv2.imread("C:\\python\\Automation\\Olive.PNG", cv2.IMREAD_COLOR)
+tomato_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Tomato.png", cv2.IMREAD_COLOR)
+artichoke_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Artichoke.PNG", cv2.IMREAD_COLOR)
+Squid_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Squid.PNG", cv2.IMREAD_COLOR)
+Sausage_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Sausage.PNG", cv2.IMREAD_COLOR)
+Tuna_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Tuna.PNG", cv2.IMREAD_COLOR)
+Olive_pizza = cv2.imread("C:\\Users\\upatu\\GroupOfThings\\HomeProjects\\images\\Olive.PNG", cv2.IMREAD_COLOR)
 
 
 
@@ -138,8 +137,6 @@ def checkpizzatypes():
     SSPizzamenuNP = np.array(screenshotpizzamenu)
     screen_image = cv2.cvtColor(SSPizzamenuNP, cv2.COLOR_RGB2BGR)
 
-
-    #screen_image = cv2.imread("C:\\python\\Automation\\Screen.PNG", cv2.IMREAD_UNCHANGED) ####CHANGE IN FUTURE FOR SCREENSHOT
 
 
 
